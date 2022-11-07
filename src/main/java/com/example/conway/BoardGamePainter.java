@@ -3,36 +3,31 @@ package com.example.conway;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-import static com.example.conway.constants.GameGrid.COLUMNS;
-import static com.example.conway.constants.GameGrid.ROWS;
+import static com.example.conway.constants.GameConstants.*;
 
 /**
- * Here we have our painting and drawing function of the game.
+ * Here we have our drawing function of the game.
  */
-public class TrianglePainter {
-
-    private final int RECTANGLE_SIZE = 30;
+public class BoardGamePainter {
 
     /*
         Receiving the canvas and the game board and painting on the canvas.
         @param gc - the canvas of the game.
         @param mat - the grid of the game.
      */
-    public void painter(GraphicsContext gc, int[][] mat) {
+    public void paintGrid(GraphicsContext gc, int[][] mat) {
         int rectSize = RECTANGLE_SIZE;
         double x = 0;
         double y = 0;
         for (int i = 0; i < ROWS; i++) {
             for (int j = 0; j < COLUMNS; j++) {
-                if (mat[i][j] == 1) {
+                if (mat[i][j] == ALIVE) {
                     gc.setFill(Color.GREEN);
-                    gc.fillRect(x, y, rectSize, rectSize);
-                    gc.strokeRect(x, y, rectSize, rectSize);
                 } else {
                     gc.setFill(Color.WHITE);
-                    gc.fillRect(x, y, rectSize, rectSize);
-                    gc.strokeRect(x, y, rectSize, rectSize);
                 }
+                gc.fillRect(x, y, rectSize, rectSize);
+                gc.strokeRect(x, y, rectSize, rectSize);
                 x += rectSize;
             }
             y += rectSize;
