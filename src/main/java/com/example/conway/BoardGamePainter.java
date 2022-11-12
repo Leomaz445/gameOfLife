@@ -14,7 +14,7 @@ public class BoardGamePainter {
      * Receiving the canvas and the game board and painting on the canvas.
      *
      * @param gc  - the canvas of the game.
-     * @param mat - the grid of the game.
+     * @param mat - the grid of the game with information which cell alive and which is dead.
      */
     public void paintGrid(GraphicsContext gc, int[][] mat) {
         int rectSize = RECTANGLE_SIZE;
