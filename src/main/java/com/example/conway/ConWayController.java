@@ -16,7 +16,8 @@ public class ConWayController {
     private ConWayLogic conWayLogic;
     private BoardGamePainter boardGamePainter;
 
-    //Create the object of the game logic and the painter of the game,create the first screen.
+    //Create the object of the game that contains the logic and the painter of the game.
+    //After that we generate the first screen.
     public void initialize() {
         this.gc = canv.getGraphicsContext2D();
         this.conWayLogic = new ConWayLogic();
