@@ -6,7 +6,8 @@ import javafx.scene.paint.Color;
 import static com.example.conway.constants.GameConstants.*;
 
 /**
- * Here we have our drawing function of the game.
+ * This class is responsible for drawing.
+ * this class is drawing the board of the game, if the cell is alive the color is green if dead the color is white.
  */
 public class BoardGamePainter {
 
