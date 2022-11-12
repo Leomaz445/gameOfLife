@@ -22,13 +22,12 @@ public class BoardGamePainter {
         double y = 0;
         for (int i = 0; i < ROWS; i++) {
             for (int j = 0; j < COLUMNS; j++) {
+                gc.setStroke(Color.BLACK);
+                gc.strokeRect(x, y, rectSize, rectSize);
                 if (mat[i][j] == ALIVE) {
                     gc.setFill(Color.GREEN);
-                } else {
-                    gc.setFill(Color.WHITE);
+                    gc.fillRect(x, y, rectSize, rectSize);
                 }
-                gc.fillRect(x, y, rectSize, rectSize);
-                gc.strokeRect(x, y, rectSize, rectSize);
                 x += rectSize;
             }
             y += rectSize;

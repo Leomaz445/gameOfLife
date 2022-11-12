@@ -12,6 +12,7 @@ import java.io.IOException;
  * Created By Leonid Mazarsky
  */
 public class GameOfLifeApplication extends Application {
+
     //Loading the FXML file and generating the opening screen
     @Override
     public void start(Stage stage) throws IOException {

@@ -29,32 +29,30 @@ public class ConWayLogic {
 
     //Generating the next generation by applying conway rules.
     public void calculateNextGeneration() {
-        int aliveNeighborsCounter;
-        int[][] nextGenerationGrid = new int[ROWS][COLUMNS];
+        int[][] nextGeneration = new int[ROWS][COLUMNS];
+
         for (int i = 0; i < ROWS; i++) {
             for (int j = 0; j < COLUMNS; j++) {
-                aliveNeighborsCounter = 0;
 
-                //counting the number of neighbours that are alive
-                for (int k = -1; k <= 1; k++) {
-                    for (int l = -1; l <= 1; l++) {
+                int aliveNeighboursCounter = 0;
+                for (int k = -1; k <= 1; k++)
+                    for (int l = -1; l <= 1; l++)
                         if ((i + k >= 0 && i + k < ROWS) && (j + l >= 0 && j + l < COLUMNS))
-                            aliveNeighborsCounter += grid[i + k][j + l];
-                    }
-                }
-                //counting ourselves in the process,we're deleting our self's.
-                aliveNeighborsCounter -= grid[i][j];
+                            aliveNeighboursCounter += grid[i + k][j + l];
 
-                if ((grid[i][j] == ALIVE) && (aliveNeighborsCounter < TWO_NEIGHBOURS))
-                    nextGenerationGrid[i][j] = DEAD;
-                else if ((grid[i][j] == ALIVE) && (aliveNeighborsCounter > THREE_NEIGHBOURS))
-                    nextGenerationGrid[i][j] = DEAD;
-                else if ((grid[i][j] == DEAD) && (aliveNeighborsCounter == THREE_NEIGHBOURS))
-                    nextGenerationGrid[i][j] = ALIVE;
+                //deleting the cell itself because we counted in the loop before when we counted the alive cells.
+                aliveNeighboursCounter -= grid[i][j];
+
+                if ((grid[i][j] == ALIVE) && (aliveNeighboursCounter < TWO_NEIGHBOURS))
+                    nextGeneration[i][j] = DEAD;
+                else if ((grid[i][j] == ALIVE) && (aliveNeighboursCounter > THREE_NEIGHBOURS))
+                    nextGeneration[i][j] = DEAD;
+                else if ((grid[i][j] == DEAD) && (aliveNeighboursCounter == THREE_NEIGHBOURS))
+                    nextGeneration[i][j] = ALIVE;
                 else
-                    nextGenerationGrid[i][j] = grid[i][j];
+                    nextGeneration[i][j] = grid[i][j];
             }
         }
-        this.grid = nextGenerationGrid;
+        grid = nextGeneration;
     }
 }

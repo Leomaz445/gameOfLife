@@ -34,7 +34,7 @@ public class ConWayController {
 
     //Drawing the new generation,before we draw the generation the paint the screen to erase the prev gen.
     public void drawNextGeneration() {
-        gc.fillRect(0, 0, canv.getWidth(), canv.getHeight());
+        gc.clearRect(0, 0, canv.getWidth(), canv.getHeight());
         conWayLogic.calculateNextGeneration();
         boardGamePainter.paintGrid(gc, conWayLogic.getGrid());
     }
