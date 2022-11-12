@@ -16,6 +16,7 @@ public class ConWayLogic {
     public int[][] getGrid() {
         return grid;
     }
+
     //generate the Starting grid we generate between two options 0 - is dead 1 is alive.
     public void generateRandomStartGrid() {
         Random randomGenerator = new Random();

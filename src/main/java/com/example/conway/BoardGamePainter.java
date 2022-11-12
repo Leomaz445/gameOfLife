@@ -10,10 +10,11 @@ import static com.example.conway.constants.GameConstants.*;
  */
 public class BoardGamePainter {
 
-    /*
-        Receiving the canvas and the game board and painting on the canvas.
-        @param gc - the canvas of the game.
-        @param mat - the grid of the game.
+    /**
+     * Receiving the canvas and the game board and painting on the canvas.
+     *
+     * @param gc  - the canvas of the game.
+     * @param mat - the grid of the game.
      */
     public void paintGrid(GraphicsContext gc, int[][] mat) {
         int rectSize = RECTANGLE_SIZE;
