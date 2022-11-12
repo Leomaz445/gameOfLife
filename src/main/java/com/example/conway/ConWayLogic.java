@@ -27,7 +27,8 @@ public class ConWayLogic {
         }
     }
 
-    //Generating the next generation by applying conway rules.
+    //Generating the next generation by applying conway rules - looping throw each cell
+    //counting the number of live neighbours and applying the rules.
     public void calculateNextGeneration() {
         int[][] nextGeneRation = new int[ROWS][COLUMNS];
 
