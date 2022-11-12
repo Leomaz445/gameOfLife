@@ -29,30 +29,30 @@ public class ConWayLogic {
 
     //Generating the next generation by applying conway rules.
     public void calculateNextGeneration() {
-        int[][] nextGeneration = new int[ROWS][COLUMNS];
+        int[][] nextGeneRation = new int[ROWS][COLUMNS];
 
         for (int i = 0; i < ROWS; i++) {
             for (int j = 0; j < COLUMNS; j++) {
 
                 int aliveNeighboursCounter = 0;
-                for (int k = -1; k <= 1; k++)
-                    for (int l = -1; l <= 1; l++)
-                        if ((i + k >= 0 && i + k < ROWS) && (j + l >= 0 && j + l < COLUMNS))
-                            aliveNeighboursCounter += grid[i + k][j + l];
+                for (int l = -1; l <= 1; l++)
+                    for (int k = -1; k <= 1; k++)
+                        if ((i + l >= 0 && i + l < ROWS) && (j + k >= 0 && j + k < COLUMNS))
+                            aliveNeighboursCounter += grid[i + l][j + k];
 
-                //deleting the cell itself because we counted in the loop before when we counted the alive cells.
+                //Deleting the cell itself because we counted in the loop before.
                 aliveNeighboursCounter -= grid[i][j];
 
                 if ((grid[i][j] == ALIVE) && (aliveNeighboursCounter < TWO_NEIGHBOURS))
-                    nextGeneration[i][j] = DEAD;
+                    nextGeneRation[i][j] = DEAD;
                 else if ((grid[i][j] == ALIVE) && (aliveNeighboursCounter > THREE_NEIGHBOURS))
-                    nextGeneration[i][j] = DEAD;
+                    nextGeneRation[i][j] = DEAD;
                 else if ((grid[i][j] == DEAD) && (aliveNeighboursCounter == THREE_NEIGHBOURS))
-                    nextGeneration[i][j] = ALIVE;
+                    nextGeneRation[i][j] = ALIVE;
                 else
-                    nextGeneration[i][j] = grid[i][j];
+                    nextGeneRation[i][j] = grid[i][j];
             }
         }
-        grid = nextGeneration;
+        this.grid=nextGeneRation;
     }
 }
